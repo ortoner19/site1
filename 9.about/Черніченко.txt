@@ -1,0 +1,33 @@
+const block1 = document.querySelector('.block1')
+const block2 = document.querySelector('.block2')
+const block3 = document.querySelector('.block3')
+
+const blockes = document.querySelectorAll('.block') // Поверне массив блоків з класом .block
+
+blockes.forEach(function(item) { // Змінна item матиме значення відповідного елемента масива під час кожної з ітерацій
+ const itemText = item.textContent
+
+ item.addEventListener('click', () => {
+  blockes.forEach(function(item2) {
+   item2.classList.remove('active')
+  })
+
+  item.classList.add('active')
+  console.log(itemText)
+ })
+})
+
+// const arr = [1, 2, 3, 4, 5, 6]
+// arr.forEach(function(count) {
+//  console.log('Conunt', count * 2)
+// })
+
+// block1.addEventListener('click', () => {
+//  console.log('Clicked on 1 button')
+// })
+// block2.addEventListener('click', () => {
+//  console.log('Clicked on 2 button')
+// })
+// block3.addEventListener('click', () => {
+//  console.log('Clicked on 3 button')
+// })

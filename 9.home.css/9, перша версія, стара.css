@@ -1,0 +1,242 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+
+/* више сброс */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    width: 1140px;
+    margin: 0 auto;
+}
+.header-inner{
+    display: flex;
+    justify-content: space-between;
+    height: 7vh;
+}
+.header-logo{padding-top: 30px; padding-bottom: 30px; background: #fff;}
+.header-navbar{padding-top: 40px; padding-bottom: 40px;}
+.header-inner ul{list-style-type: none; display: flex; justify-content:  space-around; position: relative; cursor: pointer;}
+.header-inner ul li{font-family: sans-serif, 'Lato'; padding-left: 20px; font-size: 14px; line-height: 24px; letter-spacing: 0.075em; font-weight: 400; color: #777;}
+.header-inner ul li a{text-decoration: none; color: #777; transition: 0.5s ease;}
+.header-inner ul li a:hover{color: black;}
+.header-inner ul .active-link-header a{color: #000;}
+.header-navbar span{position: absolute; width: 20px; height: 2px; background-color: #000;  align-items: center; left: -20px; top: 10px;}
+
+/*Main Section */
+.main-inner img{
+width: 100%;
+height: 100%;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+.main-inner {position: relative;}
+/*Пишу слайдер*/
+.slider-wrapper{
+    width: 100%;
+    height: 93vh;
+    position: relative;
+}
+#btn-prev, #btn-next {
+    position: absolute;
+    font-size: 24px;
+    font-weight: 700;
+    padding-top: -5px;
+    color: #fff;
+    left: 10%;
+    top: 45%;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background-color: #000;
+    opacity: 1;
+    cursor: pointer;
+    transition: opacity .2s ease-in-out;
+    border: 2px solid #000;
+    display: flex; align-items: center; justify-content: center;
+}
+#btn-prev.active-switch{    border: 2px solid #fff;     background-color: transparent;}
+#btn-next.active-switch{    border: 2px solid #fff;     background-color: transparent;}
+#btn-prev:hover, #btn-next:hover {opacity: 0.6;}
+#btn-next{left: auto; right: 10%;}
+.slide{width: 100%; height: 100%; display: none; position: relative;}
+.slide h1{line-height: 24px; font-size: 48px; letter-spacing: 0.1em ; color: #fff; font-weight: 300;}
+.h1-top{background-color: #000; height: 55px; width: 700px; display: flex; justify-content: center; align-items: center; }
+.slide p{font-size: 18px; line-height: 24px; letter-spacing: 0.4em; margin-top: 40px; text-align: center; font-weight: 300;}
+.slide.active{
+    display: block;
+}
+.slide .slider-text1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+}
+.slide .slider-text2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+}
+.dots-wrapper{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 98%;
+    right: 50%;
+}
+.dot{background-color: #fff; position: relative;}
+.dot span{display: none;}
+.dot.active span{display: block; width: 6px; height: 6px; border-radius: 50%; background-color: #fff; position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);}
+.dot.active{
+    background-color: #000;
+}
+.dots-wrapper span{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border-color: gray;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.dots-wrapper span:last-child{
+    margin-right: 0;
+}
+
+
+/* SECTOND SECTION  */
+.second-section{padding-top: 2%; background-color: #fafafa; box-shadow: 0px -3px 4.75px 0.25px rgba(163, 163, 163, 0.1);}
+.second-section__inner--navbar ul{display: flex; justify-content: space-around; margin: 2% 0 2% 0;}
+.second-section__inner--navbar ul li{list-style-type: none; font-weight: 700;}
+.second-section__inner--navbar ul li a{text-decoration: none; position: relative; color: #777; transition: 0.5s ease;}
+.second-section__inner--navbar ul li a:hover{color: black;}
+.second-section__inner--navbar ul li a.active-page{color: black;}
+.second-section__inner--navbar ul li a span{position: absolute; right: -50px; width: 2px; height: 18px; transform: rotate(20deg); background-color: #777;;}
+.second-section__inner--navbar hr{border: solid #e1e1e1 1px;}
+.second-section__inner--img{margin-top: 2%;}
+/*
+.second-section__inner--img div{display: inline; }
+.second-section__inner--img div img{margin-top: 2%; }
+.card5{margin-top: 500px;}
+.second-section-img{margin-right: 2%; }
+.second-section-img img{width: 31.75%;  }
+.second-section-img:nth-child(3n+3){margin-right: 0;}
+.second-section-img:nth-child(10){margin-left: 34%; vertical-align: top;}
+*/
+.second-section__inner--img{display: flex; flex-wrap: wrap; gap: 2%; justify-content: center; margin-left: auto;}
+.second-section-img {margin-top: 2%; }
+.card4{margin-top: -7%;}
+.card5{margin-top: -15%;}
+.card7{margin-top: -6%;}
+.card8{margin-top: -6%;}
+.card8{margin-top: -6%;}
+.card10{margin-top: -15%;}
+.second-section__inner--bottom{text-align: center; padding-top: 35px; padding-bottom: 75px;}
+.second-section__inner--bottom button{width: 125px; height: 30px; background-color: #959595; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; line-height: 17.63px;
+  border-radius: 2%; border: none; text-align: center; cursor: pointer; transition: 0.5s ease;}
+  .second-section__inner--bottom button:hover{opacity: 70%;}
+
+/* THIRD SECTION */
+
+.third-section__inner--logo{display: flex; justify-content: center;  padding-top: 65px; padding-bottom: 45px; box-shadow: 0px -3px 4.75px 0.25px rgba(163, 163, 163, 0.1);}
+.third-section-top hr{ border: 1px solid #ebebeb;}
+
+
+.container-second{width: 430px; margin: 0 auto;}
+.third-section-bottom hr{ border: 1px solid #ebebeb;}
+.third-bottom--inner{padding-top: 25px; padding-bottom: 25px;}
+.third-bottom--inner ul{list-style-type: none; display: flex; justify-content: space-between;}
+.third-bottom--inner ul a{text-decoration: none; color: #777; transition: 0.5s ease;}
+.third-bottom--inner ul a:hover{color: #000; }
+
+
+/* FOOTER */
+.footer-section-inner{padding-top: 38px; padding-bottom: 45px;}
+.footer-section-inner p{font-size: 13px; letter-spacing: 0.025em; font-weight: 400; line-height: 26px; text-align: center; color: #9c9c9c;}
+.footer-section-inner p span a{text-decoration: none; color: #000;}

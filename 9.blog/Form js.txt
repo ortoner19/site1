@@ -1,0 +1,66 @@
+                <form id="main-form" method="post">
+                    <label for="name">Имя:</label>
+                    <input type="text" name="name" placeholder="имя" id="name">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" placeholder="Email" id="email">
+                    <label for="website">Website:</label>
+                    <input type="text" name="website" placeholder="Website" id="website"> <br>
+                    <textarea name="textarea" id="textarea"  placeholder="Message"></textarea>
+                    <label for="password">Пароль</label>
+                    <input type="password" name="password" placeholder="Password" id="pass">
+                    <label for="repass">Проверка пароля:</label>
+                    <input type="password" name="repass" placeholder="Проверка пароля" id="repass"> <br>
+                    <span>Пол:</span>
+                    <input type="radio" name="state" id="male" value="Мужской">
+                    <label for="male">Мужской</label>
+                    <input type="radio" name="state" id="female" value="Женский">
+                    <label for="female">Женсикй</label>
+                    <div id="error" style="color: red"></div>
+                    <input type="submit" name="submit" value="SEND MESSAGE">
+                </form>
+
+                // Робота з form
+
+document.getElementById('main-form').addEventListener("submit", checkForm);
+function checkForm(event) {
+    event.preventDefault(); // оця строка отключає перезагрузку сторінкі при нажатії на кнопку
+    var el = document.getElementById('main-form');
+    var name = el.name.value;
+    var email = el.email.value;
+    var website = el.website.value;
+
+    var pass = el.pass.value;
+    var repass = el.repass.value;
+    var state = el.state.value;
+
+    var name_pattern = /^[A-ZА-ЯЁІ ,.'-]+$/i;    // регулярне вираженіє для імені
+    var email_pattern=/[0-9a-z_]+@[0-9a-z_]+\.[a-z]{2,5}/i;  // регулярне вираєеніє під імейл
+    var pass_pattern=/(?=.*[0-9])(?=.*[!@#$%^&*`~])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*`~]{6,}/g; // регулярне вираєеніє під важкій пароль
+
+    var fail = "";
+    if(name == "" || email == "" || website == "")
+    fail = "Заполните все поля";
+    else if(name.length <=1 || name.length > 50)
+    fail = "Введите корректное имя";
+    else if(name_pattern.test(name) == false)  
+    fail = "Вы ввели имя неправильно";
+    else if(email_pattern.test(email) == false)    
+    fail = "Вы ввели email неправильно";
+    else if(pass_pattern.test(pass) == false)    
+    fail = "Вы ввели пароль неправильно";
+    else if(pass != repass)   ///3
+    fail = "Пароли не совпадают";
+    else if(state =="")
+    fail = "Укажите пол"
+    else if(website.length <=1 || website.length > 50)
+    fail = "Введите корректный website";
+    if(fail !=""){
+        document.getElementById('error').innerHTML = fail;
+        return false;
+    } else {
+        alert("Все данные корретно заполнены");
+        window.location = "https://www.google.com.ua/?hl=ru"; // оце тіпа на сайт перенаправить, на свій "в папці" чогось не йде..
+        // return true; без сєрвєра як я поняв нельзя тут писать, шоб на сайт перекінуло
+    }
+
+}

@@ -1,0 +1,46 @@
+#btn-prev, #btn-next {
+    position: absolute;
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    color: red;
+    left: 10%;
+    top: 45%;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background-color: gray;
+    opacity: 1;
+    cursor: pointer;
+    transition: opacity .2s ease-in-out;
+}
+#btn-prev.blue{background-color: blue; color: #fff;}
+#btn-next.blue{background-color: blue; color: #fff;}
+#btn-next.red{background-color: chartreuse; color: #fff;}
+#btn-prev.red{background-color: chartreuse; color: #fff;}
+.active-switch {background-color: #000; font-size: 100px; color: aquamarine;} 
+.mystyle {
+    width: 100%;
+    padding: 25px;
+    background-color: coral;
+    color: white;
+    font-size: 25px;
+}
+
+#btn-prev:hover, #btn-next:hover {opacity: 0.6;}
+#btn-next{left: auto; right: 10%;}
+/*.video1, .video2{ тут був переключатєль третьої кнопкі
+    display:none;
+ }
+ 
+ .active{
+   display:block;
+ }  */
+ .active {
+    background: red;
+}
+#btn-prev.active {background: red;}
+#btn-next.active {background: red;}
+
+ .blue{background-color: blue; color: blueviolet;}
+ .red{background-color: chartreuse;}
